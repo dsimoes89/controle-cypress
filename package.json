@@ -1,0 +1,11 @@
+{
+  "name": "controle-cypress",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Daniel Simões <dsimoes.souza@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^7.3.0",
+    "dotenv": "^9.0.2"
+  }
+}
