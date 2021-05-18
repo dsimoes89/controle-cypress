@@ -1,5 +1,4 @@
 import SignIn from '../pages/SignInPage';
-import Toast from '../pages/ToastPage';
 
 describe('SignIn', () => {
   beforeEach(() => {
@@ -17,9 +16,7 @@ describe('SignIn', () => {
     cy.login('john.doe@email.com', '12345678');
     cy.wait('@signIn');
 
-    cy.get(Toast.toastMessage)
-      .should('be.visible')
-      .and('have.text', 'Login realizado com sucesso');
+    cy.toastValidateMessage('Login realizado com sucesso');
 
     cy.url()
       .should('equal', 'http://localhost:3000/dashboard');
@@ -45,9 +42,7 @@ describe('SignIn', () => {
       cy.login('john.doe@email.com', '12345678');
       cy.wait('@signInUserNotRegistered');
 
-      cy.get(Toast.toastMessage)
-        .should('be.visible')
-        .and('have.text', 'Usuário não encontrado');
+      cy.toastValidateMessage('Usuário não encontrado')
     });
 
     it('with invalid email', () => {
@@ -67,9 +62,7 @@ describe('SignIn', () => {
       cy.login('john.doe@email.com', '12345678');
       cy.wait('@signInInvalidPassword');
 
-      cy.get(Toast.toastMessage)
-        .should('be.visible')
-        .and('have.text', 'Senha inválida');
+      cy.toastValidateMessage('Senha inválida')
     });
 
     it('with no data', () => {

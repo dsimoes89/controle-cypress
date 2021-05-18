@@ -1,4 +1,5 @@
-import './commands'
+import './commands';
+import './toastCommands';
 
 Cypress.on('uncaught:exception', (err, runnable) => {
   return false;

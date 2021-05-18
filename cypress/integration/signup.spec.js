@@ -1,5 +1,4 @@
 import SignUp from '../pages/SignUpPage';
-import Toast from '../pages/ToastPage';
 
 describe('SignUp', () => {
   beforeEach(() => {
@@ -17,9 +16,8 @@ describe('SignUp', () => {
     cy.userRegister('John Doe', 'john.doe@email.com', '12345678');
     cy.wait('@signUp');
 
-    cy.get(Toast.toastMessage)
-      .should('be.visible')
-      .and('have.text', 'Usuário cadastrado com sucesso');
+    cy.toastValidateMessage('Usuário cadastrado com sucesso');
+
     cy.url()
       .should('equal', 'http://localhost:3000/');
   });
@@ -44,9 +42,7 @@ describe('SignUp', () => {
       cy.userRegister('John Doe', 'john.doe@email.com', '12345678');
       cy.wait('@signUpDuplicated');
 
-      cy.get(Toast.toastMessage)
-        .should('be.visible')
-        .and('have.text', 'Usuário já cadastrado');
+      cy.toastValidateMessage('Usuário já cadastrado');
     });
 
     it('with invalid email', () => {
