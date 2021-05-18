@@ -7,5 +7,8 @@
   "dependencies": {
     "cypress": "^7.3.0",
     "dotenv": "^9.0.2"
+  },
+  "devDependencies": {
+    "cypress-postgres": "^1.1.1"
   }
 }

@@ -1,1 +1,9 @@
-{}
+{
+  "db": {
+    "user": "postgres",
+    "password": "postgres",
+    "host": "localhost",
+    "database": "controle-dev-database",
+    "port": 5432
+  }
+}
